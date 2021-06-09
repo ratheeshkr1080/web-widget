@@ -158,116 +158,29 @@ export default {
     handleCheckedRight() {
       this.right = this.right.concat(this.leftChecked());
       this.left = not(this.left, this.leftChecked());
-      this.checked = not(this.checked, this.leftChecked());
+      // this.checked = not(this.checked, this.leftChecked());
+      this.checked = [];
       // this.emitToParent();
-      this.onChangedValues([1, 2, 3, 4]);
+      
     },
     handleCheckedLeft() {
       this.left = this.left.concat(this.rightChecked());
       this.right = not(this.right, this.rightChecked());
-      this.checked = not(this.checked, this.rightChecked());
+      // this.checked = not(this.checked, this.rightChecked());
+       this.checked = [];
     },
 
     handleAllLeft() {
       this.left = this.left.concat(this.right);
       this.right = [];
+      this.checked=[];
     },
 
     handleAllRight() {
       this.right = this.right.concat(this.left);
       this.left = [];
+           this.checked=[];
       console.log("this.right", this.right);
-    },
-
-    customList(title, items) {
-      return (
-        <div>
-          <div>{title} </div>
-          <div>{items} </div>
-        </div>
-
-        // <div class="paper">
-        //         <div class="card" v-if="enhanced">
-        //           <div class="card-checkbox">
-        //             <input
-        //               type="checkbox"
-        //               id=""
-        //               value=""
-        //               v-on:click="handleToggleAll(left)"
-        //             />
-        //           </div>
-        //           <div class="card-header">
-        //             <label for="Choices">Choices</label>
-        //             <label for="Choices">{{
-        //               `${numberOfChecked(left)}/${left.length} selected`
-        //             }}</label>
-        //           </div>
-        //         </div>
-        //         <div class="list-content">
-        //           <div :key="leftValue.id" v-for="leftValue in left">
-        //             <ListItem
-        //               :name="leftValue.name"
-        //               @change="handleToggle(leftValue)"
-        //               :checked="checked.indexOf(leftValue) !== -1"
-        //             />
-        //           </div>
-        //         </div>
-        //       </div>
-
-        // <Card>
-        //   <CardHeader
-        //     className={"cardHeader"}
-        //     avatar={
-        //       <Checkbox
-        //         onClick={this.handleToggleAll(items)}
-        //         checked={
-        //           this.umberOfChecked(items) === items.length &&
-        //           items.length !== 0
-        //         }
-        //         indeterminate={
-        //           this.numberOfChecked(items) !== items.length &&
-        //           this.numberOfChecked(items) !== 0
-        //         }
-        //         disabled={items.length === 0}
-        //         inputProps={{ "aria-label": "all items selected" }}
-        //       />
-        //     }
-        //     title={title}
-        //     subheader={`${this.numberOfChecked(items)}/${
-        //       items.length
-        //     } selected`}
-        //   />
-        //   <Divider />
-        //   <List className={"list"} dense component="div" role="list">
-        //     {items.map((value) => {
-        //       const labelId = `transfer-list-all-item-${value}-label`;
-
-        //       return (
-        //         <ListItem
-        //           key={value}
-        //           role="listitem"
-        //           button
-        //           onClick={this.handleToggle(value)}
-        //         >
-        //           <ListItemIcon>
-        //             <Checkbox
-        //               checked={this.checked.indexOf(value) !== -1}
-        //               tabIndex={-1}
-        //               disableRipple
-        //               inputProps={{ "aria-labelledby": labelId }}
-        //             />
-        //           </ListItemIcon>
-        //           <ListItemText
-        //             id={labelId}
-        //             primary={`List item ${value + 1}`}
-        //           />
-        //         </ListItem>
-        //       );
-        //     })}
-        //     <ListItem />
-        //   </List>
-        // </Card>
-      );
     },
   },
   computed: {
